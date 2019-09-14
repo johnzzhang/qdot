@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 // setup mongoDB connection
-const mongoURL = "mongodb://danharmon:harmonquest@ds159997.mlab.com:59997/nat20"
+const mongoURL = "mongodb://qdotadmin:1joulepersecond@ds249418.mlab.com:49418/qdot"
 const options = {  };
 mongoose.connect(mongoURL, options);
 mongoose.Promise = global.Promise;

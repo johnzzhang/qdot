@@ -1,5 +1,5 @@
 {
-	"name": "Natural 20",
-	"description": "DND Utility",
-	"repository": "https://github.com/mit6148/Blakizen-DThreats-johnzzhang-2018",
+	"name": "dqdt",
+	"description": "time derivative of queue",
+	"repository": "https://github.com/johnzzhang/qdot",
 }

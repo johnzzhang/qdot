@@ -1,0 +1,18 @@
+#map {
+	height:600px;
+	width:464px;
+}
+
+#floating-panel {
+	position: absolute;
+	float:left;
+	top: 10px;
+	z-index: 5;
+	background-color: #fff;
+	padding: 5px;
+	border: 1px solid #999;
+	text-align: center;
+	font-family: 'Roboto','sans-serif';
+	line-height: 30px;
+	padding-left: 10px;
+}

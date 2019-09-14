@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nat20 | Character Edit</title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/style.css">
+  	<link rel="stylesheet" href="/static/css/character.css">
+  	<link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+	<div class="bg">
+		<nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+			<a class="navbar-brand" href="/">
+				<img src="/static/images/nat20.png"  height="60" class="d-inline-block align-top">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbar-supported-content">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/lobby">Quests</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/character/view">Characters</a></li>
+					<li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+					<li class="nav-item"><a class="nav-link" href="/howto">How To</a></li>
+					
+				</ul>
+				<a class="nav-link text-light" href="/api/logout">Log Out</a>
+			</div>
+		</nav>
+
+        <div class="container">
+            <h1 class="text-light primary text-center display-4">
+                Character Edit
+            </h1>
+        </div>
+
+       	<div class="container bg-light-custom rounded sheet">
+	        <main class="col-sm-12">
+				<section class="row text-center placeholders">
+				<div class="col-3 col-sm-3 placeholder">
+				  <img id="charAppearance" width="200" height="200" class="img-fluid rounded-circle">
+				</div>
+				<div class="col-8">
+					<h1 id="charNameDiv"></h1>
+				</div>
+				</section>
+
+			    <div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Description</h2>
+		          		<div class="btn btn-primary" onclick="saveDescription()" >Save Description</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			              <tbody>
+							<tr>
+			                  <td>Character</td>
+			                  <td><input id="charName"></td>
+			                </tr>
+			                <tr>
+			                  <td>Race</td>
+			                  <td><input  id="charRace"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Class</td>
+			                  <td><input  id="charClass"></td>
+			                </tr>
+			             	<tr>
+			                  <td>Background</td>
+			                  <td><input  id="charBackground"></td>
+			                </tr>
+			                <tr>
+			                  <td>Alignment</td>
+			                  <td><input  id="charAlignment"></td>
+			                </tr>
+			                <tr>
+			                  <td>Level</td>
+			                  <td><input  id="charLevel"></td>
+			                </tr>
+			                <tr>
+			                  <td>Age</td>
+			                  <td><input  id="charAge"></td>
+			                </tr>
+			                <tr>
+			                  <td>Height</td>
+			                  <td><input  id="charHeight"></td>
+			                </tr>
+			                <tr>
+			                  <td>Weight</td>
+			                  <td><input  id="charWeight"></td>
+			                </tr>
+			                <tr>
+			                  <td>Eyes</td>
+			                  <td><input  id="charEyes"></td>
+			                </tr>
+			                <tr>
+			                  <td>Skin</td>
+			                  <td><input  id="charSkin"></td>
+			                </tr>
+			                <tr>
+			                  <td>Hair</td>
+			                  <td><input  id="charHair"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Stats</h2>
+		          		<div class="btn btn-primary" onclick="saveStats()" >Save Stats</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			        	  <tbody>
+			                <tr>
+			                  <td>Strength</td>
+			                  <td><input id="charStrength"></td>
+			                </tr>
+			                <tr>
+			                  <td>Dexterity</td>
+			                  <td><input id="charDexterity"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Constitution</td>
+			                  <td><input id="charConstitution"></td>
+			                </tr>
+			             	<tr>
+			                  <td>Intelligence</td>
+			                  <td><input id="charIntelligence"></td>
+			                </tr>
+			                <tr>
+			                  <td>Wisdom</td>
+			                  <td><input id="charWisdom"></td>
+			                </tr>
+			                <tr>
+			                  <td>Charisma</td>
+			                  <td><input id="charCharisma"></td>
+			                </tr>
+			                <tr>
+			                  <td>Total Hit Die</td>
+			                  <td><input id="charTotalHitDie"></td>
+			                </tr>
+			                <tr>
+			                  <td>Current Hit Die</td>
+			                  <td><input id="charCurrentHitDie"></td>
+			                </tr>
+			                <tr>
+			                  <td>Experience</td>
+			                  <td><input id="charExperience"></td>
+			                </tr>
+			                <tr>
+			                  <td>Inspiration</td>
+			                  <td><input id="charInspiration"></td>
+			                </tr>
+			                <tr>
+			                  <td>Acrobatics   <input type="checkbox" id="charAcrobaticsPro"></td>
+			                  <td><input id="charAcrobaticsMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Animal Handling <input type="checkbox" id="charAnimalHandlingPro"></td>
+			                  <td><input id="charAnimalHandlingMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Arcana   <input type="checkbox" id="charArcanaPro"></td>
+			                  <td><input id="charArcanaMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Athletics   <input type="checkbox" id="charAthleticsPro"></td>
+			                  <td><input id="charAthleticsMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Deception   <input type="checkbox" id="charDeceptionPro"></td>
+			                  <td><input id="charDeceptionMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>History   <input type="checkbox" id="charHistoryPro"></td>
+			                  <td><input id="charHistoryMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Insight   <input type="checkbox" id="charInsightPro"></td>
+			                  <td><input id="charInsightMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Intimidation   <input type="checkbox" id="charIntimidationPro"></td>
+			                  <td><input id="charIntimidationMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Investigation   <input type="checkbox" id="charInvestigationPro"></td>
+			                  <td><input id="charInvestigationMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Medicine   <input type="checkbox" id="charMedicinePro"></td>
+			                  <td><input id="charMedicineMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Nature   <input type="checkbox" id="charNaturePro"></td>
+			                  <td><input id="charNatureMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Perception   <input type="checkbox" id="charPerceptionPro"></td>
+			                  <td><input id="charPerceptionMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Performance   <input type="checkbox" id="charPerformancePro"></td>
+			                  <td><input id="charPerformanceMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Persuasion   <input type="checkbox" id="charPersuasionPro"></td>
+			                  <td><input id="charPersuasionMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Religion   <input type="checkbox" id="charReligionPro"></td>
+			                  <td><input id="charReligionMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Sleight Of Hand   <input type="checkbox" id="charSleightOfHandPro"></td>
+			                  <td><input id="charSleightOfHandMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Stealth   <input type="checkbox" id="charStealthPro"></td>
+			                  <td><input id="charStealthMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Survival   <input type="checkbox" id="charSurvivalPro"></td>
+			                  <td><input id="charSurvivalMod"></td>
+			                </tr>
+			                <tr>
+			                  <td>Strength Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charStrPro"></td>
+			                </tr>
+			                <tr>
+			                  <td>Dexterity Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charDexPro"></td>
+			                </tr>
+			                <tr>
+			                  <td>Constitution Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charConPro"></td>
+			                </tr>
+			                <tr>
+			                  <td>Intelligence Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charIntPro"></td>
+			                </tr>
+			                <tr>
+			                  <td>Wisdom Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charWisPro"></td>
+			                </tr>
+			                <tr>
+			                  <td>Charisma Saving Throw Proficiency</td>
+			                  <td><input type="checkbox" id="charChaPro"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Combat</h2>
+		          		<div class="btn btn-primary" onclick="saveCombat()" >Save Combat</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			              <tbody>
+			                <tr>
+			                  <td>Max Hit Points</td>
+			                  <td><input id="charHPMax"></td>
+			                </tr>
+			                <tr>
+			                  <td>Current Hit Points</td>
+			                  <td><input id="charCurrentHP"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Temporary Hit Points</td>
+			                  <td><input id="charTemporaryHP"></td>
+			                </tr>
+			             	<tr>
+			                  <td>Armor Class</td>
+			                  <td><input id="charArmorClass"></td>
+			                </tr>
+			                <tr>
+			                  <td>Initiative</td>
+			                  <td><input id="charInitiative"></td>
+			                </tr>
+			                <tr>
+			                  <td>Speed</td>
+			                  <td><input id="charSpeed"></td>
+			                </tr>
+			                <tr>
+			                  <td>Attacks</td>
+			                  <td><input id="charAttacks"></td>
+			                </tr>
+			                <tr>
+			                  <td>Death Saving Throws Successes</td>
+			                  <td><input id="charDeathSuccess"></td>
+			                </tr>
+			                <tr>
+			                  <td>Death Saving Throws Failures</td>
+			                  <td><input id="charDeathFail"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Spells</h2>
+		          		<div class="btn btn-primary" onclick="saveSpells()" >Save Spells</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			              <tbody>
+			                <tr>
+			                  <td>Spell Ability</td>
+			                  <td><input id="charSpellAbility"></td>
+			                </tr>
+			                <tr>
+			                  <td>Prepared Spells</td>
+			                  <td><input id="charPreparedSpells"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Known Spells</td>
+			                  <td><input id="charKnownSpells"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Equipment</h2>
+		          		<div class="btn btn-primary" onclick="saveEquipment()" >Save Equipment</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			              <tbody>
+			                <tr>
+			                  <td>GP</td>
+			                  <td><input id="charGP"></td>
+			                </tr>
+			                <tr>
+			                  <td>SP</td>
+			                  <td><input id="charSP"></td>
+			                </tr>
+			                <tr>
+			                  <td>CP</td>
+			                  <td><input id="charCP"></td>
+			                </tr>
+			                <tr>
+			                  <td>Weapons</td>
+			                  <td><input id="charWeapons"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Armor/Shield</td>
+			                  <td><input id="charArmorShield"></td>
+			                </tr>
+			             	<tr>
+			                  <td>Misc.</td>
+			                  <td><input id="charMisc"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Features</h2>
+		          		<div class="btn btn-primary" onclick="saveFeatures()" >Save Features</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			           	<table class="table table-striped">
+			              <tbody>
+			                <tr>
+			                  <td>Proficiencies</td>
+			                  <td><input id="charProficiencies"></td>
+			                </tr>
+			                <tr>
+			                  <td>Languages</td>
+			                  <td><input id="charLanguages"></td>
+			                </tr>
+			                <tr>
+			                  <td>Features and Traits</td>
+			                  <td><input id="charFeatures"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+
+
+		      	<div class="row">
+			     	 <div class="col-1 col-sm-3">
+		          		<h2>Story</h2>
+		          		<div class="btn btn-primary" onclick="saveStory()" >Save Story</div>
+		         	 </div>
+		         	 <div class="col-9 col-sm-9">
+			          <div class="table-responsive">
+			            <table class="table table-striped">
+			              <tbody>
+			                <tr>
+			                  <td>Personality Traits</td>
+			                  <td><input id="charPersonality"></td>
+			                </tr>
+			                <tr>
+			                  <td>Bonds</td>
+			                  <td><input id="charBonds"></td>
+			                </tr>
+			              	<tr>
+			                  <td>Ideals</td>
+			                  <td><input id="charIdeals"></td>
+			                </tr>
+			             	<tr>
+			                  <td>Flaws</td>
+			                  <td><input id="charFlaws"></td>
+			                </tr>
+			                <tr>
+			                  <td>Backstory</td>
+			                  <td><input id="charBackstory"></td>
+			                </tr>
+			              </tbody>
+			            </table>
+			          </div>
+			      	</div>
+		      	</div>
+	        </main>
+    	</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+	<script src="/static/js/api.js"></script>
+    <script src="/static/js/character_edit.js"></script>
+</html>
+

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nat20 | DM Lobby</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/dm.css">
+    <link rel="stylesheet" href="/static/css/map.css">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+    <div class="bg">
+        <nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+            <a class="navbar-brand" href="/">
+                <h2/>nat
+                <img src="/static/images/nat20.png" width="40" height="40" class="d-inline-block align-top"></h2>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-supported-content">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/lobby">Quests</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/character/view">Characters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+                    
+                </ul>
+                <a class="nav-link text-light" href="/api/logout">Log Out</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="text-light primary text-center display-4">
+                DM Lobby
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg container bg-light-custom rounded">
+                    <div class="container">
+
+                        <ul class="nav nav-pills mb-2 mt-2">
+                            <li class="nav-item active"><a class="nav-link active" data-toggle="pill" href="#home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a></li>
+                        </ul>
+
+                        <div class="tab-content text-primary">
+                          <div id="home" class="tab-pane fade in active show">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          </div>
+                          <div id="menu1" class="tab-pane fade">
+                            <h4></h3>
+                            <p>
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          </div>
+                          <div id="menu2" class="tab-pane fade">
+                            <p>Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          </div>
+                        </div>
+
+                        <div class="container soundboard">
+                            <div class="row">
+                                <div class="col-12">
+                                <h1>Soundboard</h1>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-6">
+                                    <h2>Combat SFX</h2>
+                                    </div>
+                                    <div class="col-8">
+                                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                                        <button id = "swordsound" type="button" class="btn btn-secondary stop" onclick="swordclash();">Sword Clash</button>
+                                        <audio id="swordclash" src="/static/sounds/swordclash.mp3"></audio>
+                                        <button type="button" class="btn btn-secondary stop" onclick="magic();">Magic</button>
+                                        <audio id="magic" src="/static/sounds/magic.mp3"></audio>
+                                        <button type="button" class="btn btn-secondary stop" onclick="bow();">Bow Shot</button>
+                                        <audio id="bow" src="/static/sounds/bow.mp3"></audio>
+                                        <button type="button" class="btn btn-secondary stop" onclick="attack();">Misc. Attack</button>
+                                        <audio id="attack" src="/static/sounds/attack.mp3"></audio>
+                                      </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                    <h2>Ambient SFX</h2>
+                                    </div>
+                                    <div class="col-8">
+                                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                                        <input id = "TownA" type="button" class="btn btn-secondary stop" onclick="tamb();" value="Town"></input>
+                                        <audio id="tamb" src="/static/sounds/TownAmb.mp3"></audio>
+                                        <input id = "NatA" type="button" class="btn btn-secondary stop" onclick="namb();" value="Forest"></input>
+                                        <audio id="namb" src="/static/sounds/NatureAmb.mp3"></audio>                  
+                                        <input id = "RainA" type="button" class="btn btn-secondary stop" onclick="ramb();" value="Rain"></input>
+                                        <audio id="ramb" src="/static/sounds/RainAmb.mp3"></audio>
+                                        <input id = "CaveA" type="button" class="btn btn-secondary stop" onclick="camb();" value="Cave"></input>
+                                        <audio id="camb" src="/static/sounds/DarkAmb.mp3"></audio>
+                                      </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                    <h2>Music</h2>
+                                    </div>
+                                    <div class="col-8">
+                                    <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                                      <div class="btn-group mr-2" role="group" aria-label="First group">
+                                        <input id = "Dcave" type="button" class="btn btn-secondary stop" onclick="cave1();" value="Cave Spelunking"></input>
+                                        <audio id="cave1" src="/static/sounds/tensecave.mp3"></audio>
+                                        <input id = "TownB" type="button" class="btn btn-secondary stop" onclick="townm();" value="City Fanfare"></input>
+                                        <audio id="townm" src="/static/sounds/Town.mp3"></audio>
+                                        <input id ="NatB" type="button" class="btn btn-secondary stop" onclick="natm();" value="Natural Peace"></input>
+                                        <audio id="natm" src="/static/sounds/NatureMusic.mp3"></audio>
+                                        <input id = "SpookA" type="button" class="btn btn-secondary stop" onclick="spookm();" value="Ominous Melodies"></input>
+                                        <audio id="spookm" src="/static/sounds/Spooky.mp3"></audio>
+                                      </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="btn-group btn-group-sm btn-group-toggle mt-1" data-toggle="buttons">
+                            <label class="btn btn-outline-danger active">
+                                <input type="radio" name="options" id="option1" autocomplete="off" checked> Statistics
+                            </label>
+                            <label class="btn btn-outline-danger">
+                                <input type="radio" name="options" id="option2" autocomplete="off"> Attacks
+                            </label>
+                            <label class="btn btn-outline-danger">
+                                <input type="radio" name="options" id="option3" autocomplete="off"> Spells
+                            </label>
+                            <label class="btn btn-outline-danger">
+                                <input type="radio" name="options" id="option4" autocomplete="off"> Inventory
+                            </label>
+                            <label class="btn btn-outline-danger">
+                                <input type="radio" name="options" id="option5" autocomplete="off"> Backstory
+                            </label>
+                        </div>
+                    </div>
+                    <div id="charsheet-content" class="container">
+                        <!-- Charcter sheet stuff here! !-->
+                        <p class=text-light>lorem ipsum dolor sit</p>
+                    </div>
+                    <div id="char-select" class="container">
+                        <!-- Party Characters here! -->
+                    </div>
+                    <div class="row">
+                        <div id="notes" class="container">
+                            <div class="row">
+                                <div class="col-12 header-text">
+                                    <h1>Ye Olde Player Notes</h1>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="editor-pane" class="col-12 col-md-12">
+                                    <textarea id="editor" class="form-control" v-model="rawMarkdown"></textarea>
+                                </div>
+                                <div id="preview" class="col-xs-12 col-md-12" style="display:none">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <article class="markdown-body">
+                                                <!-- note the triple curly braces -->
+                                                {{{renderedMarkdown}}}
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button id="save" type="button" class="btn btn-primary pull-right" @click="renderPreview">Save</button>
+                                    <button id="edit" type="button" class="btn btn-primary pull-right" @click="renderEdit" style="display:none">Edit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx3AiBUYqgM8--i2QNjLmTRvDLStiifwo"></script>
+    <script src="/static/js/maps.js"></script>
+    <script src="/static/js/soundboard.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: "#notes",
+            data: {
+                rawMarkdown: '',
+                renderedMarkdown: ''
+            },
+            methods: {
+                renderPreview: function() {
+                    // POST request to GitHub API
+                    this.$http({
+                        url: 'https://api.github.com/markdown',
+                        method: 'POST',
+                        data: {text: this.rawMarkdown, mode: 'gfm'}
+                    }).then(function (response) {
+                        // success callback
+                        this.renderedMarkdown = response.data;
+                        var editor = document.getElementById("editor-pane");
+                        var preview = document.getElementById("preview");
+                        var edit = document.getElementById("edit");
+                        var save = document.getElementById("save");
+                        editor.style.display="none";
+                        preview.style.display="block";
+                        edit.style.display="block";
+                        save.style.display="none";
+                    }, function (response) {
+                        // error callback
+                        console.log(response.data);
+                    });
+                },
+                renderEdit: function() {
+                    var editor = document.getElementById("editor-pane");
+                    var preview = document.getElementById("preview");
+                    var edit = document.getElementById("edit");
+                    var save = document.getElementById("save");
+                    editor.style.display="block";
+                    preview.style.display="none";
+                    edit.style.display="none";
+                    save.style.display="block";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

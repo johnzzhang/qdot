@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nat20 | Asset Upload</title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<link rel="stylesheet" href="/static/css/style.css">
+  	<link rel="stylesheet" href="/static/css/character.css">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+	<div class="bg">
+		<nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+			<a class="navbar-brand" href="/">
+				<img src="/static/images/nat20.png" height="60" class="d-inline-block align-top">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbar-supported-content">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" href="/lobby">Quests</a></li>
+					<li class="nav-item"><a class="nav-link" href="/character/view">Characters</a></li>
+					<li class="nav-item active"><a class="nav-link" href="/upload">Upload</a></li>
+					<li class="nav-item"><a class="nav-link" href="/howto">How To</a></li>
+					
+				</ul>
+				<a class="nav-link text-light" href="/api/logout">Log Out</a>
+			</div>
+		</nav>
+
+        <div class="container">
+            <h1 class="text-light primary text-center display-4">
+                Asset Upload
+            </h1>
+        </div>
+
+        <div class="container bg-light-custom rounded">
+        	<div class="row">
+        		<div class="col-md-12">
+			        <form id="rcorners1" class="container">
+			          <div class="form-group">
+			            <label for="InputName" class="text-white">Asset Name</label>
+			            <input type="FileUp" class="form-control" id="FileName" aria-describedby="fileHelp" placeholder="Enter Asset Name">
+			          </div>
+			          <div class="form-group">
+			            <label for="exampleTextarea" class="text-white">Asset Description</label>
+			            <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter Asset Description"></textarea>
+			          </div>
+			          <div class="custom-file mb-3">
+			            <input type="file" class="custom-file-input" id="customFile">
+			            <label class="custom-file-label" for="customFile">Choose file</label>
+			          </div>
+			          <!--Browse button that has 2 browses for some reason*/-->
+			      	</form>
+			      </div>
+	    	</div>
+	    </div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>	
+</body>
+</html>
+

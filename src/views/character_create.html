@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nat20 | Character Create</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/character_create.css">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="bg">
+        <nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/nat20.png" height="60" class="d-inline-block align-top">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbar-supported-content">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="/lobby">Quests</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="/character/view">Characters</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/howto">How To</a></li>
+                    
+                </ul>
+                <a class="nav-link text-light" href="/api/logout">Log Out</a>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="text-light primary text-center display-4">
+                Character Create
+            </h1>
+        </div>
+
+        <div class="container bg-light-custom rounded">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+                    <form id="msform">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active">Description</li>
+                            <li>Stats</li>
+                            <li>Combat</li>
+                            <li>Spells</li>
+                            <li>Equipment</li>
+                            <li>Features</li>
+                            <li>Story</li>
+                        </ul>
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <h2 class="fs-title">Description</h2>
+                            <h3 class="fs-subtitle">How your character looks</h3>
+                            <div class="form-group">
+                                <label for="charName">Character Name</label>
+                                <input class="form-control" name="charName" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="charRace">Race</label>
+                                <input class="form-control" name="charRace">
+                            </div>
+                            <div class="form-group">
+                                <label for="charClass">Class</label>
+                                <input class="form-control" name="charClass">
+                            </div>
+                            <div class="form-group">
+                                <label for="charBackground">Background</label>
+                                <input class="form-control" name="charBackground">
+                            </div>
+                            <div class="form-group">
+                                <label for="charAlignment">Alignment</label>
+                                <input class="form-control" name="charAlignment">
+                            </div>
+                            <div class="form-group">
+                                <label for="charLevel">Level</label>
+                                <input class="form-control" name="charLevel">
+                            </div>
+                            <div class="form-group">
+                                <label for="charAge">Age</label>
+                                <input class="form-control" name="charAge"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charHeight">Height</label>
+                                <input class="form-control" name="charHeight"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charWeight">Weight</label>
+                                <input class="form-control" name="charWeight"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charEyes">Eyes</label>
+                                <input class="form-control" name="charEyes"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charSkin">Skin</label>
+                                <input class="form-control" name="charSkin"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charHair">Hair</label>
+                                <input class="form-control" name="charHair"></input>
+                            </div>
+                            <label for="charAppearance">Character Appearance</label>
+                            <div class="preview custom-file">
+                                <label class="custom-file-label" for="charAppearance">Choose file</label>
+                                <input type="file" class="custom-file-input" id="icon-upload" accepts="image/*"></input>
+                                <img type="image/png" style="height:150px; width:150px" src="/static/images/fondue.png">
+                                <p>You can upload your own 150x50 pixel icon</p>
+                                <input type="form-control" style="opacity:0" id="charAppearance" name="charAppearance"></input>
+                            </div>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Stats</h2>
+                            <h3 class="fs-subtitle">Character stats</h3>
+                            <div class="form-group">
+                                <label for="charStrength">Strength</label>
+                                <input class="form-control" name="charStrength"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charDexterity">Dexterity</label>
+                                <input class="form-control" name="charDexterity"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charConstitution">Constitution</label>
+                                <input class="form-control" name="charConstitution"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charIntelligence">Intelligence</label>
+                                <input class="form-control" name="charIntelligence"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charWisdom">Wisdom</label>
+                                <input class="form-control" name="charWisdom"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charCharisma">Charisma</label>
+                                <input class="form-control" name="charCharisma"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charAcrobatics">Acrobatics Pro and Modifier</label>
+                                <input type="checkbox" name="charAcrobaticsPro">
+                                <input class="form-control" name="charAcrobaticsMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charAnimalHandling">Animal Handling Pro and Modifier</label>
+                                <input type="checkbox" name="charAnimalHandlingPro">
+                                <input class="form-control" name="charAnimalHandlingMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charArcana">Arcana Pro and Modifier</label>
+                                <input type="checkbox" name="charArcanaPro">
+                                <input class="form-control" name="charArcanaMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charAthletics">Athletics Pro and Modifier</label>
+                                <input type="checkbox" name="charAthleticsPro">
+                                <input class="form-control" name="charAthleticsMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charDeception">Deception Pro and Modifier</label>
+                                <input type="checkbox" name="charDeceptionPro">
+                                <input class="form-control" name="charDeceptionMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charHistory">History Pro and Modifier</label>
+                                <input type="checkbox" name="charHistoryPro">
+                                <input class="form-control" name="charHistoryMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charInsight">Insight Pro and Modifier</label>
+                                <input type="checkbox" name="charInsightPro">
+                                <input class="form-control" name="charInsightMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charIntimidation">Intimidation Pro and Modifier</label>
+                                <input type="checkbox" name="charIntimidationPro">
+                                <input class="form-control" name="charIntimidationMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charInvestigation">Investigation Pro and Modifier</label>
+                                <input type="checkbox" name="charInvestigationPro">
+                                <input class="form-control" name="charInvestigationMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charMedicine">Medicine Pro and Modifier</label>
+                                <input type="checkbox" name="charMedicinePro">
+                                <input class="form-control" name="charMedicineMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charNature">Nature Pro and Modifier</label>
+                                <input type="checkbox" name="charNaturePro">
+                                <input class="form-control" name="charNatureMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charPerception">Perception Pro and Modifier</label>
+                                <input type="checkbox" name="charPerceptionPro">
+                                <input class="form-control" name="charPerceptionMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charPerformance">Performance Pro and Modifier</label>
+                                <input type="checkbox" name="charPerformancePro">
+                                <input class="form-control" name="charPerformanceMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charPersuasion">Persuasion Pro and Modifier</label>
+                                <input type="checkbox" name="charPersuasionPro">
+                                <input class="form-control" name="charPersuasionMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charReligion">Religion Pro and Modifier</label>
+                                <input type="checkbox" name="charReligionPro">
+                                <input class="form-control" name="charReligionMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charSleightOfHand">Sleight of Hand Pro and Modifier</label>
+                                <input type="checkbox" name="charSleightOfHandPro">
+                                <input class="form-control" name="charSleightOfHandMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charStealth">Stealth Pro and Modifier</label>
+                                <input type="checkbox" name="charStealthPro">
+                                <input class="form-control" name="charStealthMod"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charSurvival">Survival Pro and Modifier</label>
+                                <input type="checkbox" name="charSurvivalPro">
+                                <input class="form-control" name="charSurvivalMod"></input>
+                            </div>
+                            <h3>Saving Throw Proficiency</h3>
+                            <div class="form-group">
+                                <label for="charSavingThrow">Strength</label>
+                                <input type="checkbox" name="charStrPro">
+                                <label for="charSavingThrow">Dexterity</label>
+                                <input type="checkbox" name="charDexPro">
+                                <label for="charSavingThrow">Constitution</label>
+                                <input type="checkbox" name="charConPro">
+                                <label for="charSavingThrow">Intelligence</label>
+                                <input type="checkbox" name="charIntPro">
+                                <label for="charSavingThrow">Wisdom</label>
+                                <input type="checkbox" name="charWisPro">
+                                <label for="charSavingThrow">Charisma</label>
+                                <input type="checkbox" name="charChaPro">
+                            </div>
+                            <div class="form-group">
+                                <label for="charTotalHitDie">Total Hit Die</label>
+                                <input class="form-control" name="charTotalHitDie"></input>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Combat</h2>
+                            <h3 class="fs-subtitle">How your character looks</h3>
+                            <div class="form-group">
+                                <label for="charHPMax">Hit Point Maximum</label>
+                                <input class="form-control" name="charHPMax"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charArmorClass">Armor Class</label>
+                                <input class="form-control" name="charArmorClass"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charInitiative">Initiative</label>
+                                <input class="form-control" name="charInitiative"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charSpeed">Speed</label>
+                                <input class="form-control" name="charSpeed"></input>
+                            </div>
+                            <div class="form-group">
+                                <label for="charAttacks">Attacks</label>
+                                <textarea class="form-control" name="charAttacks" rows="5"></textarea>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Spells</h2>
+                            <h3 class="fs-subtitle">Character stats</h3>
+                            <div class="form-group">
+                                <label for="charSpellAbility">Spellcasting Ability</label>
+                                <input class="form-control" name="charSpellAbility">
+                            </div>
+                            <div class="form-group">
+                                <label for="charKnownSpells">Known Spells</label>
+                                <textarea class="form-control" name="charKnownSpells" rows="5"></textarea>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Equipment</h2>
+                            <h3 class="fs-subtitle">How your character looks</h3>
+                            <h3>Coins</h3>
+                            <div class="form-group">
+                                <label for="charGP">GP</label>
+                                <input class="form-control" name="charGP">
+                            </div>
+                            <div class="form-group">
+                                <label for="charSP">SP</label>
+                                <input class="form-control" name="charSP">
+                            </div>
+                            <div class="form-group">
+                                <label for="charCP">CP</label>
+                                <input class="form-control" name="charCP">
+                            </div>
+                            <div class="form-group">
+                                <label for="charWeapons">Weapons</label>
+                                <textarea class="form-control" name="charWeapons" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charArmorShield">Armor and Shields</label>
+                                <textarea class="form-control" name="charArmorShields" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charMisc">Miscellanious</label>
+                                <textarea class="form-control" name="charMisc" rows="5"></textarea>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Features</h2>
+                            <h3 class="fs-subtitle">Character stats</h3>
+                            <div class="form-group">
+                                <label for="charProficiencies">Proficiencies</label>
+                                <textarea class="form-control" name="charProficiencies" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charLanguages">Languages</label>
+                                <textarea class="form-control" name="charLanguages" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charFeatures">Features and Traits</label>
+                                <textarea class="form-control" name="charFeatures" rows="3"></textarea>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="button" name="next" class="next action-button" value="Next"/>
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Story</h2>
+                            <h3 class="fs-subtitle">Fill in your credentials</h3>
+                            <div class="form-group">
+                                <label for="charFlaws">Flaws</label>
+                                <textarea class="form-control" name="charFlaws" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charIdeals">Ideals</label>
+                                <textarea class="form-control" name="charIdeals" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charPersonality">Personality Traits</label>
+                                <textarea class="form-control" name="charPersonality" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charBonds">Bonds</label>
+                                <textarea class="form-control" name="charBonds" rows="2"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="charBackstory">Character Backstory</label>
+                                <textarea class="form-control" name="charBackstory" rows="5"></textarea>
+                            </div>
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                            <input type="submit" name="btnSubmit" class="submit action-button" value="Submit" onclick="createCharacter()"/>
+                        </fieldset>
+                    </form>
+                    <!-- link to designify.me code snippets
+                    <div class="dme_link">
+                        <p><a href="http://designify.me/code-snippets-js/" target="_blank">More Code Snippets</a></p>
+                    </div>
+                    /.link to designify.me code snippets -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.0.min.js"
+      integrity="sha256-RTQy8VOmNlT6b2PIRur37p6JEBZUE7o8wPgMvu18MC4="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.182.0.min.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/character_create.js"></script>
+    <script src="/static/js/multiform.js"></script>
+</body>
+</html>

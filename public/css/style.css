@@ -1,0 +1,57 @@
+body, html {
+	height: 100%;
+}
+
+hr {
+	border-color: DarkRed;
+}
+
+.bg-light-custom {
+	background: rgba(0,0,0,0.7);
+	/* background: rgba(255,255,255,0.5); */
+	color:white;
+}
+.nav-red .active a, .nav-red .active a:hover {
+	background-color: red
+}
+
+/*
+.btn-danger {
+	background-color: rgb(150,0,0);
+	border-color: rgb(150, 0, 0);
+}
+*/
+
+.player-map {
+	height: 100%
+}
+
+.bg {
+	background-image: url(/static/images/dungeon-bg.png);
+	min-height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.soundboard{
+	color:white;
+}
+
+#editor,
+#preview {
+    height: 500px;
+    max-height: 500px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.panel {
+    overflow-y: auto;
+    max-height: 500px;
+    padding: 10px;
+}
+
+#notes {
+    color:white;
+}

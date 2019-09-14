@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Nat20 | Lobby</title>
+
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+	<div class="bg">
+		<nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+			<a class="navbar-brand" href="/">
+				<img src="/static/images/nat20.png" height=60 class="d-inline-block align-top">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbar-supported-content">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="/lobby">Quests</a></li>
+					<li class="nav-item"><a class="nav-link" href="/character/view">Characters</a></li>
+					<li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+					<li class="nav-item"><a class="nav-link" href="/howto">How To</a></li>
+					
+				</ul>
+				<a class="nav-link text-light" href="/api/logout">Log Out</a>
+			</div>
+		</nav>
+		<div class="container">
+			<h1 class="text-light primary text-center display-4">
+				Lobby
+			</h1>
+		</div>
+		<div class="container jumbotron bg-light-custom">
+			<div class="form-row text-center">
+				<div class="col-lg">
+					<h3>Dungeon Master</h3>
+				</div>
+				<div class="col-lg mb-3">
+					<div class="dropdown">
+						<button class="btn btn-lg btn-block btn-outline-danger dropdown-toggle" type="button" data-toggle="dropdown">
+							Created Quests
+						</button>
+						<div class="dropdown-menu" id="creator-dropdown-menu">
+							<!-- DM Lobbies here -->
+						</div>
+					</div>	
+					
+				</div>
+				<div class="col-lg-6 mb-3">
+					<button class="btn-lg btn btn-block btn-outline-danger" type="button" data-toggle="collapse" data-parent="#test-accordion" data-target="#collapse-create-form">Create New</button>
+
+					<form method="POST" action="/api/lobby/create" class="collapse mt-1" id="collapse-create-form">
+						<div class="form-row">
+							<div class="col-3">
+								<button type="submit" class="btn btn-block btn-outline-danger">Random</button>
+							</div>
+							<div class="col-2">
+								<p>- OR -</p>
+							</div>
+							<div class="col input-group">
+								<div class="input-group-append">
+									<input type="text" name="lobby_id" class="form-control" placeholder="Name">
+									<button type="submit" class="btn btn-outline-danger">Create</button>
+								</div>
+							</div>			
+						</div>
+					</form>
+				</div>
+			</div>
+			<hr>
+			<div class="form-row text-center">
+				<div class="col-lg">
+					<h3 class="text-center">Player</h3>
+				</div>
+				<div class="col-lg mb-3">
+					<div class="dropdown">
+						<button class="btn btn-lg btn-block btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+							Player Quests
+						</button>
+						<div class="dropdown-menu" id="player-dropdown-menu">
+							<!-- Player Lobbies Here -->
+						</div>
+					</div>
+				</div>
+				<div class="mb-3 col-lg-6">
+					<button class="btn btn-lg btn-block btn-danger" type="button" id="collapse-spectate" data-toggle="collapse" data-parent="#test-accordion" data-target="#collapse-join-form">Join New</button>
+					<form action="/api/lobby/join" method="post" class="collapse mt-1" id="collapse-join-form" >
+						<div class="form-group input-group">
+							<input type="text" name="lobby_id" class="form-control" id="lobby-join-id" placeholder="Enter Lobby ID" required>
+							<div class="invalid-feedback">Need valid lobby</div>
+							<div class="input-group-append">
+								
+								<select name="char_id" class="custom-select rounded-0" id="character-dropdown-menu" required>
+									<!-- character options here -->
+									<option value="">Character</option>
+								</select>
+								<div class="invalid-feedback">Must select a character.</div>
+								<button type="submit" class="btn btn-secondary">Go</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<hr>
+			<div class="form-row text-center">
+				<div class="col-lg">
+					<h3>Spectate</h3>
+				</div>
+				<div class="col-lg-9">
+					
+					<form action="/lobby/spectate" method="get" class="mt-1 mb-3" id="spectate-form">
+						<div class="form-group input-group">
+							<input type="text" name="lobby_id" class="form-control" id="lobby-join-id" placeholder="Enter Lobby ID">
+							<div class="input-group-append">
+								<button type="submit" class="btn btn-secondary">Go</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script>
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	(function() {
+	  'use strict';
+
+	  window.addEventListener('load', function() {
+	    var form = document.getElementById('collapse-join-form');
+	    form.addEventListener('submit', function(event) {
+	      if (form.checkValidity() === false) {
+	        event.preventDefault();
+	        event.stopPropagation();
+	      }
+	      form.classList.add('was-validated');
+	    }, false);
+	  }, false);
+	})();
+	</script>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	<script src="/static/js/api.js"></script>
+	<script src="/static/js/prelobby.js"></script>
+</body>
+</html>

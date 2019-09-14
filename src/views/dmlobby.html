@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nat20 | DM Lobby</title>
+
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/dm.css">
+    <link rel="stylesheet" href="/static/css/map.css">
+    <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
+</head>
+<body>
+	<div class="bg">
+		<nav class="navbar sticky-top navbar-fixed navbar-expand-sm navbar-dark bg-light-custom mb-2">
+			<a class="navbar-brand" href="/">
+				<img src="/static/images/nat20.png" height="60" class="d-inline-block align-top">
+			</a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-supported-content">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbar-supported-content">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="/lobby">Quests</a></li>
+					<li class="nav-item"><a class="nav-link" href="/character/view">Characters</a></li>
+					<li class="nav-item"><a class="nav-link" href="/upload">Upload</a></li>
+					<li class="nav-item"><a class="nav-link" href="/howto">How To</a></li>
+					
+				</ul>
+				<a class="nav-link text-light" href="/api/logout">Log Out</a>
+			</div>
+		</nav>
+		<div class="container">
+			<h1 class="text-light primary text-center display-4" id="lobby-title" >
+				Lobby
+			</h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg container bg-light-custom rounded">
+					<div class="container">
+
+						<ul class="nav nav-pills mb-2 mt-2">
+							<li class="nav-item active"><a class="nav-link active" data-toggle="pill" href="#sheet-description">Description</a></li>
+							<li class="nav-item active"><a class="nav-link" data-toggle="pill" href="#sheet-stats">Stats</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#sheet-combat">Combat</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#sheet-spells">Spells</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#sheet-equipment">Equipment</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#sheet-abilities">Abilities</a></li>
+							<li class="nav-item"><a class="nav-link" data-toggle="pill" href="#sheet-story">Story</a></li>
+						</ul>
+
+						<div class="tab-content text-light">
+						  <div id="sheet-description" class="tab-pane fade in active show">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Name</td>
+				                  <td id="sheet-name"></td>
+				                </tr>
+				                <tr>
+				                  <td>Race</td>
+				                  <td id='sheet-race'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Class</td>
+				                  <td id="sheet-class"></td>
+				                </tr>
+				             	<tr>
+				                  <td>Background</td>
+				                  <td id="sheet-background"></td>
+				                </tr>
+				                <tr>
+				                  <td>Alignment</td>
+				                  <td id="sheet-alignment"></td>
+				                </tr>
+				                <tr>
+				                  <td>Level</td>
+				                  <td id="sheet-level"></td>
+				                </tr>
+				                <tr>
+				                  <td>Age</td>
+				                  <td id="sheet-age"></td>
+				                </tr>
+				                <tr>
+				                  <td>Height</td>
+				                  <td id="sheet-height"></td>
+				                </tr>
+				                <tr>
+				                  <td>Weight</td>
+				                  <td id="sheet-weight"></td>
+				                </tr>
+				                <tr>
+				                  <td>Eyes</td>
+				                  <td id="sheet-eyes"></td>
+				                </tr>
+				                <tr>
+				                  <td>Skin</td>
+				                  <td id="sheet-skin"></td>
+				                </tr>
+				                <tr>
+				                  <td>Hair</td>
+				                  <td id="sheet-hair"></td>
+				                </tr>
+				                <tr>
+				                  <td>Appearance</td>
+				                  <td id="sheet-appearance"></td>
+				                </tr>
+				              </tbody>
+				            </table>
+						  </div>
+						  <div id="sheet-stats" class="tab-pane fade">
+							<table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Strength</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Dexterity</td>
+				                  <td></td>
+				                </tr>
+				              	<tr>
+				                  <td>Constitution</td>
+				                  <td></td>
+				                </tr>
+				             	<tr>
+				                  <td>Intelligence</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Wisdom</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Charisma</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Proficiency Bonus</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Acrobatics</td>
+				                  <td></td>
+				                </tr>
+				                <tr>
+				                  <td>Total Hit Die</td>
+				                  <td>amet</td>
+				                </tr>
+				                <tr>
+				                  <td>Inspiration</td>
+				                  <td>amet</td>
+				                </tr>
+				              </tbody>
+				            </table>
+						    <p>
+						    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						  </div>
+						  <div id="sheet-combat" class="tab-pane fade">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Hit Points</td>
+				                  <td id="sheet-hp"></td>
+				                </tr>
+				                <tr>
+				                  <td>Armor Class</td>
+				                  <td id='sheet-armorclass'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Initiative</td>
+				                  <td id="sheet-intitiative"></td>
+				                </tr>
+				             	<tr>
+				                  <td>Speed</td>
+				                  <td id="sheet-speed"></td>
+				                </tr>
+				                <tr>
+				                  <td>Attacks</td>
+				                  <td id="sheet-attacks"></td>
+				                </tr>
+				                <tr>
+				                  <td>Death Saving Throws</td>
+				                  <td id="sheet-deathsavingthrows"></td>
+				                </tr>
+				              </tbody>
+				            </table>
+						  </div>
+						  <div id="sheet-spells" class="tab-pane fade">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Spell Ability</td>
+				                  <td id="sheet-spellability"></td>
+				                </tr>
+				                <tr>
+				                  <td>Spell Attack Bonus</td>
+				                  <td id='sheet-spellattackbonus'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Spell Save DC</td>
+				                  <td id="sheet-spellsavedc"></td>
+				                </tr>
+				             	<tr>
+				                  <td>Spell Slots</td>
+				                  <td id="sheet-spellslots"></td>
+				                </tr>
+				                <tr>
+				                  <td>Prepared Spells</td>
+				                  <td id="sheet-preparedspells"></td>
+				                </tr>
+				                <tr>
+				                  <td>Known Spells</td>
+				                  <td id="sheet-knownspells"></td>
+				                </tr>
+				              </tbody>
+				            </table>
+						  </div>
+						  <div id="sheet-equipment" class="tab-pane fade">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Coins</td>
+				                  <td id="sheet-coins"></td>
+				                </tr>
+				                <tr>
+				                  <td>Weapons</td>
+				                  <td id='sheet-weapons'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Miscellaneous</td>
+				                  <td id="sheet-misc"></td>
+				                </tr>
+				              </tbody>
+				            </table>
+						  </div>
+						  <div id="sheet-abilities" class="tab-pane fade">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Other Proficiencies</td>
+				                  <td id="sheet-proficiencies"></td>
+				                </tr>
+				                <tr>
+				                  <td>Languages</td>
+				                  <td id='sheet-languages'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Features</td>
+				                  <td id="sheet-features"></td>
+				                </tr>
+				             	
+				              </tbody>
+				            </table>
+						  </div>
+						  <div id="sheet-story" class="tab-pane fade">
+						    <table class="table table-striped">
+				        	  <tbody>
+				                <tr>
+				                  <td>Personality</td>
+				                  <td id="sheet-personality"></td>
+				                </tr>
+				                <tr>
+				                  <td>Bonds</td>
+				                  <td id='sheet-bonds'></td>
+				                </tr>
+				              	<tr>
+				                  <td>Ideals</td>
+				                  <td id="sheet-ideals"></td>
+				                </tr>
+				             	<tr>
+				                  <td>Flaws</td>
+				                  <td id="sheet-flaws"></td>
+				                </tr>
+				                <tr>
+				                  <td>Backstory</td>
+				                  <td id="sheet-backstory"></td>
+				                </tr>
+				              </tbody>
+				            </table>
+						  </div>
+						</div>
+
+						<div class="btn-group btn-group-lg btn-group-toggle mt-1 mb-3" data-toggle="buttons" id="character-list">
+							<!-- Character Select
+							<label class="btn btn-outline-danger active">
+								<input type="radio" name="options" id="option1" autocomplete="off" checked> Samsong Ba'Tree Fyre
+							</label>
+						  	<label class="btn btn-outline-danger">
+								<input type="radio" name="options" id="option3" autocomplete="off"> Wilfred
+						  	</label>
+						  	<label class="btn btn-outline-danger">
+								<input type="radio" name="options" id="option4" autocomplete="off"> Albert
+						  	</label>
+						  	<label class="btn btn-outline-danger">
+								<input type="radio" name="options" id="option5" autocomplete="off"> Sven Sphrot
+						  	</label>
+						  	-->
+						</div>
+
+						<div class="soundboard">
+							<!-- soundboard here -->
+						</div>
+
+						<div class="row">
+							<div id="notes" class="container">
+						        <div class="row">
+						            <div class="col-12 header-text">
+						                <h1>Ye Olde Player Notes</h1>
+						            </div>
+						        </div>
+						        <div class="row">
+						            <div id="editor-pane" class="col-12 col-md-12">
+						                <textarea id="editor" class="form-control" v-model="rawMarkdown"></textarea>
+						            </div>
+						            <div id="preview" class="col-xs-12 col-md-12" style="display:none">
+						                <div class="panel panel-default">
+						                    <div class="panel-body">
+						                        <article class="markdown-body">
+						                            <!-- note the triple curly braces -->
+						                            {{{renderedMarkdown}}}
+						                        </article>
+						                    </div>
+						                </div>
+						            </div>
+						        </div>
+						        <div class="row">
+						            <div class="col-12">
+						                <button id="save" type="button" class="btn btn-primary pull-right" @click="renderPreview">Save</button>
+						                <button id="edit" type="button" class="btn btn-primary pull-right" @click="renderEdit" style="display:none">Edit</button>
+						            </div>
+						        </div>
+						    </div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg">
+					<div class="container-fluid">
+						<div id="floating-panel">
+					      <input onclick="clearMarkers();" type=button value="Hide Markers">
+					      <input onclick="showMarkers();" type=button value="Show All Markers">
+					      <input onclick="deleteMarkers();" type=button value="Delete Markers">
+					    </div>
+						<div id="map"></div>
+					</div>
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-lg">
+							<button class="btn btn-primary" onclick="saveMap()">Send to Players</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg">
+								<div class="album">
+									<div class="card" onclick="switchTavern()">
+										<img type="image/jpg" src="/static/images/maps/tavern.jpg"></img>
+									</div>
+									<div class="card" onclick="switchSnow()">
+										<img type="image/jpg" src="/static/images/maps/snow.jpg"></img>
+									</div>
+									<div class="card" onclick="switchForest()">
+										<img type="image/jpg" src="/static/images/maps/forest.jpg"></img>
+									</div>
+									<div class="card" onclick="switchUrban()">
+										<img type="image/jpg" src="/static/images/maps/urban.jpg"></img>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg">
+								<div id="charicons" class="album">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg">
+								<div class="album">
+									<div class="card" onclick="addMarker('dragon')">
+										<img type="image/jpg" src="/static/images/dragon.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('horse')">
+										<img type="image/jpg" src="/static/images/horse.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('wolf')">
+										<img type="image/jpg" src="/static/images/wolf.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('colbol')">
+										<img type="image/jpg" src="/static/images/colbol.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('wingedcolbol')">
+										<img type="image/jpg" src="/static/images/wingedcolbol.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('thug')">
+										<img type="image/jpg" src="/static/images/thug.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('evilwizard')">
+										<img type="image/jpg" src="/static/images/evilwiz.png"></img>
+									</div>
+									<div class="card" onclick="addMarker('skeleton')">
+										<img type="image/jpg" src="/static/images/skeleton.png"></img>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/vue/1.0.16/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/0.7.0/vue-resource.min.js"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAx3AiBUYqgM8--i2QNjLmTRvDLStiifwo"></script>
+	<script src="/static/js/api.js"></script>
+	<script src="/static/js/lobby.js"></script>
+	<script src="/static/js/player.js"></script>
+	<script src="/static/js/dm_maps.js"></script>
+
+	<script>
+        var vm = new Vue({
+            el: "#notes",
+            data: {
+                rawMarkdown: '',
+                renderedMarkdown: ''
+            },
+            methods: {
+                renderPreview: function() {
+                    // POST request to GitHub API
+                    this.$http({
+                        url: 'https://api.github.com/markdown',
+                        method: 'POST',
+                        data: {text: this.rawMarkdown, mode: 'gfm'}
+                    }).then(function (response) {
+                        // success callback
+                        this.renderedMarkdown = response.data;
+                        var editor = document.getElementById("editor-pane");
+                        var preview = document.getElementById("preview");
+                        var edit = document.getElementById("edit");
+                        var save = document.getElementById("save");
+                        editor.style.display="none";
+                        preview.style.display="block";
+                        edit.style.display="block";
+                        save.style.display="none";
+                    }, function (response) {
+                        // error callback
+                        console.log(response.data);
+                    });
+
+
+                	var editor = document.getElementById("editor-pane");
+                    var data = {notes: editor.innerHTML};
+                    post('/api/notes',data);
+                },
+                renderEdit: function() {
+                	var editor = document.getElementById("editor-pane");
+                    var preview = document.getElementById("preview");
+                    var edit = document.getElementById("edit");
+                    var save = document.getElementById("save");
+                    editor.style.display="block";
+                    preview.style.display="none";
+                    edit.style.display="none";
+                    save.style.display="block";
+                }
+            }
+        });
+    </script>
+</body>
+</html>

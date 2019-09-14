@@ -1,173 +1,138 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <head>
-        <title>Nat20 | Home</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Q Dot</title>
+</head>
+<body class="mb-2 bg-primary text-white">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <link rel="stylesheet" href="/static/css/style.css">
-        <link rel="shortcut icon" type="image/png" href="/static/images/favicon.png"/>
 
-        <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
-        <link rel="stylesheet" href="/static/css/login.css">
-    </head>
 
-<body>
-    <div>
-        <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-            <div class="container"><a class="navbar-brand" href="#">Natural 20</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse"
-                    id="navcol-1">
-                    <ul class="nav navbar-nav mr-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link active" href="#">The Innovative DnD Experience</a></li>
-                    </ul><span class="navbar-text actions"> </span>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="media/Q_dot_logo.png" height="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+
+        <ul class="navbar-nav ml-auto" >
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Section
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">L1</a>
+                    <a class="dropdown-item" href="#">L2</a>
+                    <a class="dropdown-item" href="#">L3</a>
                 </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Queue <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="admin.html">Admin</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .c_textField{
+        border-radius: 15px;
+    }
+
+</style>
+
+
+
+<div class = "container-fluid " style = "margin-top:2%" >
+    <div class = "row">
+
+        <!--setup estimated wait time-->
+        <div class = "col-sm mt-3" style = "font-size: 35px ; font-family: 'Segoe UI Light'">
+            Estimated wait time: 5 mins
+
+        </div>
+
+
+        <div class = "col-lg-6 ">
+
+            <!--setup the form-->
+
+            <form style = "margin-left: 30px ;margin-right:30px" >
+                <div class = "form group py-2">
+                    <label for = "nameField">Name:</label>
+                    <input type = "text" class = "form-control c_textField" id = "nameField" placeholder="John Doe">
+                </div>
+                <div class = "form group py-2">
+                    <label for = "tableField">Table:</label>
+                    <input type = "text" class = "form-control c_textField" id = "tableField" placeholder="4">
+                </div>
+                <div class = "form group py-2">
+                    <label for = "problemField">Question:</label>
+                    <input type = "text" class = "form-control c_textField" id = "problemField" placeholder="Question 4.a.ii">
+                </div>
+            </form>2
+
+            <!--setup available tutors-->
+
+            <div class = "container-fluid" >
+                <div class = "row mx-3 mt-4">
+                    <div class ="col-sm  p-0 ">
+                        <ul class = "list-group c_TAField">
+                            <li class = "list-group-item list-group-item-success ">Mark Zuckerberg</li>
+                            <li class = "list-group-item list-group-item-success ">Elon Musk</li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class ="col-sm p-0">
+                        <ul class = "list-group">
+                            <li class = "list-group-item list-group-item-danger">Daddy D</li>
+                            <li class = "list-group-item">U SUCK</li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class ="col-sm p-0">
+                        <ul class = "list-group">
+                            <li class = "list-group-item">U SUCK</li>
+                            <li class = "list-group-item">U SUCK</li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
-        </nav>
+
+
+        </div>
+        <div class = "col-sm "></div>
+
+
     </div>
 
-      <!-- Modal -->
-      <div class="modal fade" id="SignIn" role="dialog">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <form method="POST" action="/api/login" class="modal-body">
-                <div class="form-group"><input class="form-control text-gray-dark faded" type="text" name="username" placeholder="Username"></div>
-                    <div class="form-group"><input class="form-control text-gray-dark faded" type="password" name="password" placeholder="Password"></div>
-                        <div class="form-group"><button class="btn btn2 btn-primary btn-block" type="submit">Sign In</button>
-                        </div>
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-          <!-- Modal -->
-      <div class="modal fade" id="SignUp" role="dialog">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-            </div>
-            <form method="POST" action="/api/signup" class="modal-body">
-                <div class="form-group">
-                    <input class="form-control text-gray-dark faded" type="text" name="username" placeholder="Username">
-                </div>
-                <div class="form-group">
-                    <input id="password" class="form-control text-gray-dark faded" type="password" name="password" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <input id="confirm_password" class="form-control text-gray-dark faded" type="password" placeholder="Confirm Password">
-                </div>
-                <div class="form-group">
-                    <button class="btn btn2 btn-primary btn-block" type="submit">Sign Up</button>
-                </div>
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+</div>
 
 
-    <div class="carousel slide" data-ride="carousel" id="carousel-1" data-interval="false">
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-                <div class="jumbotron hero-nature carousel-hero">
-                    <h1 class="hero-title">JOIN THE ADVENTURE</h1>
-                    <p class="hero-subtitle">Sign up today and experience DnD in a new and exciting way.</p>
-                    <div class="btn-group-lg" role="group">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignIn">Sign In</button>
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignUp">Sign Up</button>
-                        <button class="btn btn-primary" type="button">Spectate</button>
-                    </div>
-                    <p></p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="jumbotron hero-photography carousel-hero">
-                    <h1 class="hero-title">Intuition is key</h1>
-                    <p class="hero-subtitle">Easy to learn mechanics and clean interfaces will change the way you play.</p>
-                    <div class="btn-group-lg" role="group">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignIn">Sign In</button>
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignUp">Sign Up</button>
-                        <button class="btn btn-primary" type="button">Spectate</button>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <div class="jumbotron hero-technology carousel-hero">
-                    <h1 class="hero-title">Never Stop</h1>
-                    <p class="hero-subtitle">Uploading assets into the game is easy! Soundboards and character sprites deepen the experience and will keep you coming back.</p>
-                    <div class="btn-group-lg" role="group">
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignIn">Sign In</button>
-                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#SignUp">Sign Up</button>
-                        <button class="btn btn-primary" type="button">Spectate</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev"><i class="fa fa-chevron-left"></i><span class="sr-only">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next"><i class="fa fa-chevron-right"></i><span class="sr-only">Next</span></a></div>
-        <ol
-            class="carousel-indicators">
-            <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-1" data-slide-to="1"></li>
-            <li data-target="#carousel-1" data-slide-to="2"></li>
-            </ol>
-
-
-        <div class="modal fade login-dark" id="SignUp" role="dialog">
-            <form method="POST" action="/api/singup" class="login-dark">
-                            <h2 class="sr-only">Login Form</h2>
-                            <div class="form-group"><input class="form-control text-gray-dark faded" type="text" name="uname" placeholder="Username"></div>
-                            <div class="form-group"><input class="form-control text-gray-dark faded" type="password" name="pwd" placeholder="Password" /></div>
-                            <div class="form-group"><input class="form-control text-gray-dark faded" type="password" name="pwdcomf" placeholder="Confirm Password" /></div>
-                            <div class ="form-group"><button class="btn btn2 btn-primary btn-block" type="submit" data-dismiss="modal">Sign Up</button>
-                            </div>   
-            </form>       
-        </div>
-
-    <footer>
-        <div class="row">
-            <div class="col-sm-6 col-md-4 footer-navigation">
-                <h3><a href="#">I will create a<span> logo! </span></a></h3>
-                <p class="links"><a href="#">You haven't played DnD until you've used this.</a></p>
-                <p class="company-name">Natural 20 © 2018 </p>
-            </div>
-            <div class="col-sm-6 col-md-4 footer-contacts">
-                <div><span class="fa fa-map-marker footer-contacts-icon"> </span>
-                    <p><span class="new-line-span">450 Memorial Drive</span> Cambridge, Massachusetts</p>
-                </div>
-                <div><i class="fa fa-phone footer-contacts-icon"></i>
-                    <p class="footer-center-info email text-left"> +1 817 0000000</p>
-                </div>
-                <div><i class="fa fa-envelope footer-contacts-icon"></i>
-                    <p> <a href="#" target="_blank">X@mit.edu</a></p>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="col-md-4 footer-about">
-                <h4>About the website</h4>
-                <p> This website was created as part of the MIT 6.148 web development competition.
-                </p>
-            </div>
-        </div>
-    </footer>
-    
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-    <script src= "/static/js/login.js"></script>
-
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
 </html>

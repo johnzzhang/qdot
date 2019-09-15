@@ -19,11 +19,11 @@ router.get('/', function(req,res) {
             res.sendFile('index.html', { root: 'src/views' });
         }
         */
-        res.sendFile('index.html', { root: './src/views' });
+        res.sendFile('index.html', { root: 'src/views' });
 });
 
 router.get('/admin', function(req,res) {
-    res.sendFile('admin.html', { root: './src/views' })
+    res.sendFile('admin.html', { root: 'src/views' })
 });
 
 // lobbies

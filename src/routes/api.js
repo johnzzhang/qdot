@@ -12,9 +12,11 @@ router.use(bodyParser.json());
 
 router.post('/create', function(req, res) {
     const newQItem = new QItem({
-        'studentName': req.body.studentName,
-        'tableNumber': req.body.tableNumber,
-        'question': req.body.question
+        'studentName': req.body.nameField,
+        'tableNumber': req.body.tableField,
+        'question': req.body.problemField,
+        'claimed': false,
+        'timestamp': + new Date()
     });
 
     newQItem.save(function(err, story) {

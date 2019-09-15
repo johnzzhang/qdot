@@ -10,7 +10,7 @@ const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-router.post('/create', function(req, res) {
+router.post('/api/create', function(req, res) {
     const newQItem = new QItem({
         'studentName': req.body.nameField,
         'tableNumber': req.body.tableField,
@@ -24,6 +24,13 @@ router.post('/create', function(req, res) {
     });
 
     res.redirect('/index');
+});
+
+router.get('/viewQ')
+
+
+router.post('/claim', function(req, res) {
+
 });
 
 module.exports = router;

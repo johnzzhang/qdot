@@ -25,15 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent" >
 
         <ul class="navbar-nav ml-auto" >
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Section
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">L1</a>
-                    <a class="dropdown-item" href="#">L2</a>
-                    <a class="dropdown-item" href="#">L3</a>
-                </div>
+
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">Queue <span class="sr-only">(current)</span></a>
@@ -52,7 +44,7 @@
     }
 
     .list-group{
-        max-height: 300px;
+        max-height: 500px;
         margin-bottom: 10px;
         overflow-y:auto;
         -webkit-overflow-scrolling: touch;
@@ -66,16 +58,6 @@
 </style>
 
 
-<script>
-
-
-    //each person needs a ticket time, a name, a table number, question problem, a claimed boolean,
-    function update( ){
-
-    }
-
-</script>
-
 
 <div class = "container-fluid " style = "margin-top:2%" >
     <div class = "row">
@@ -86,22 +68,45 @@
 
         <div class = "col-lg-6 ">
 
+            <!--Box above list to test stuff-->
+            <a id = "debug">
+                Debug
+            </a>
+
+            <div id = "highlight_div" class = "container-fluid px-5" >
+                <div class = "row" style = "font-size: 30px">
+                    <div id = "claimed_box" class = "col-8">You have claimed Ruben
+                    </div>
+                    <div class = "col-md-auto  d-flex ml-auto">
+                        <button id ="unclaim_button" class = "btn btn-danger d-flex ml-auto">Unclaim</button>
+                    </div>
+                </div>
+                <div class = "row mt-2" style = "font-size:20px">
+                    <div id = "table_box" class = "col-3">Table 4</div>
+                    <div class = "col-md-auto  d-flex ml-auto">
+                        <button id ="done_button" class = "btn btn-success d-flex ml-auto">Done</button>
+                    </div>
+
+                </div>
+                <div class = "row mt-4">
+                    <div class ="col-8">
+                        Question:
+                    </div>
+                    <div id = "question_box" class ="col-8">
+                        What are peanuts?
+                    </div>
+
+                </div>
+            </div>
             <!--setup available students-->
 
             <div class = "container-fluid" >
                 <div class = "row mx-3 mt-4">
                     <div class ="col-sm  p-0 ">
-                        <ul class = "list-group c_TAField">
-                            <li class = "list-group-item list-group-item-light ">Einstein, Table 5, problem 4
-                                <button type = "button" class = " btn btn-danger ml-auto d-flex justify-content-end in-list-button"
-                                onclick="">Claim</button>
-                            </li>
-                            <li class = "list-group-item list-group-item-light ">Elon Musk</li>
-                            <li class = "list-group-item list-group-item-light ">Mark Zuckerberg</li>
-                            <li class = "list-group-item list-group-item-light ">Elon Musk</li>
-                            <li class = "list-group-item list-group-item-light ">Mark Zuckerberg</li>
-                            <li class = "list-group-item list-group-item-light ">Elon Musk</li>
-                            <li class = "list-group-item list-group-item-light ">Mark Zuckerberg</li>
+
+                        <!--Here's the list to hold the peoples-->
+                        <ul id = "people_holder" class = "list-group c_TAField">
+
 
                         </ul>
                     </div>
@@ -120,6 +125,129 @@
 
 </div>
 
+
+<script>
+
+
+    let active = false;
+    let people = [];
+
+    //each person needs a ticket time, a name, a table number, question problem, a claimed boolean,
+    function update( ){
+        let holder = document.getElementById("people_holder");
+        while(holder.firstChild){
+            holder.removeChild(holder.firstChild);
+        }
+        let person;
+        for(person of people){
+            let listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            listItem.classList.add("list-group-item-light");
+            listItem.innerText = person.name + " : Table: " + person.table + " Q: "+ person.question;
+
+            let listItemButton = document.createElement("Button");
+            listItemButton.id = "Claim_butt_"+person.ticketID;
+            listItemButton.type = "button";
+            listItemButton.classList.add("btn");
+            listItemButton.classList.add("btn-danger");
+            listItemButton.classList.add("d-flex");
+            listItemButton.classList.add("ml-auto");
+            listItemButton.classList.add("in-list-button");
+
+            listItemButton.innerText = "Claim";
+            let newt = person;
+            listItemButton.onclick = function(){claim(newt)};
+
+            listItem.appendChild(listItemButton);
+
+            holder.appendChild(listItem);
+        }
+
+    }
+
+    /*    <li class = "list-group-item list-group-item-light ">Einstein, Table 5, problem 4
+        <button type = "button" class = " btn btn-danger ml-auto d-flex justify-content-end in-list-button"
+        onclick="">Claim</button>
+            </li>*/
+
+    function init(){
+        document.getElementById("debug").innerText = "DDDDDD";
+        addPeople();
+        update();
+        document.getElementById("debug").style.display="none";
+        document.getElementById("highlight_div").style.display="none";
+    }
+
+    function addPeople(){
+        people.push(new Person(1,900000,"Ruben Castro", "4", "How to do number 4", false));
+        people.push(new Person(2,900030,"John Zhang", "12", "Help with 6 plz", false));
+        people.push(new Person(3,900040,"Emily Satterfield", "4", "I can't figure out 2", false));
+        people.push(new Person(5,900050,"Ivan Merenfeld", "2", "3", false));
+        people.push(new Person(6,900060,"Alexandra Cotts", "1", "1", false));
+
+    }
+
+    function addPerson(person){
+        people.push(person);
+        people = people.sort(function(a,b){
+           return a.ticketID-b.ticketID;
+        });
+        update();
+    }
+
+    function claim(person){
+        if(active){
+            return;
+        }
+        //removeID(ticketID);
+        console.log("Claimed:" + person.ticketID);
+        removeID(person.ticketID);
+        highlightPerson(person);
+        active = true;
+    }
+
+    function unclaim(person){
+        addPerson(person);
+        document.getElementById("highlight_div").style.display="none";
+        active = false;
+    }
+
+    function done(person){
+        document.getElementById("highlight_div").style.display="none";
+        active= false;
+    }
+
+    function highlightPerson(person){
+        document.getElementById("highlight_div").style.display = "block";
+        document.getElementById("claimed_box").innerText = "You have claimed:" + person.name;
+        document.getElementById("table_box").innerText = "Table:"+person.table;
+        document.getElementById("question_box").innerText = person.question;
+        document.getElementById("unclaim_button").onclick = function(){unclaim(person)};
+        document.getElementById("done_button").onclick = function(){done(person)};
+
+    }
+
+    function Person( ticketID, ticketTime, name, table, question, isClaimed){
+        this.ticketID = ticketID;
+        this.ticketTime = ticketTime;
+        this.name = name;
+        this.table = table;
+        this.question = question;
+        this.isClaimed = isClaimed;
+    }
+
+
+    function removeID( ticketID){
+        people= people.filter(function(value, index, arr){
+           return value.ticketID!=ticketID;
+        });
+        update();
+    }
+
+
+    init();
+    addPerson(new Person(4,90000,"Jack Serrino", "3", "Can't do 6", false));x
+</script>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
